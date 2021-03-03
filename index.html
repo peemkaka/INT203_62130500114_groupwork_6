@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Vue Js - HelloWorld App</title>
+    <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+    <!-- Using via Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes --> 
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+   
+  </head>
+  
+  <body>
+ 
+<div id="app">
+    <div class="container w-2/5 p-8 mx-auto mt-10 border rounded-lg bg-gray-100">
+        <div class="grid grid-cols-2 ">
+            <div>
+                <img src="images/g4.jpg" class="w-36 h-40 rounded-full">
+                </div>
+            <div>
+            <p class="text-xl">{{showFullname}}</p>
+            <p class="text-xl font-bold">{{showTitle}}</p>
+            <p class="text-xl text-blue-500">{{showEmail}}</p>
+    
+             </div>
+        </div>
+        <h1 class="text-2xl pt-4 pb-4">Account</h1>
+        <form @submit.prevent="checkForm">
+            <p v-if="errors" class="text-red-500">
+                <ul>
+                   <li class="text-red-500" v-for="error in errors" >{{ error }}</li> 
+                </ul>
+            </p>
+        <div>
+            <div class="grid">
+                <label for="username">Username</label>
+                <input type="text" id="username" v-model="username" name="username">
+            </div>
+            <div class="grid">
+                <label for="email">Email</label>
+                <span class="text-red-500">*</span>
+                <input type="text" id="email" v-model="email" name="email">
+            </div>
+            <div class="grid">
+                <label for="password">Password</label>
+                <input type="password" id="password" v-model="password" name="password">
+            </div>
+            <div class="grid">
+                <label for="fullname">Full name</label>
+                <span class="text-red-500">*</span>
+                <input type="text" id="fullname" v-model="fullname" name="fullname">
+            </div>
+            <div class="grid">
+                <label for="title">Title</label>
+                <input type="text" id="title" v-model="title" name="title">
+            </div>
+            <div class="grid">
+                <label for="language">Language</label>
+                <input type="text" id="language" v-model="language" name="language">
+            </div>
+            <button>
+                <input type="submit" value="Submit" class="text-white rounded text-sm  w-100 pl-4 pr-5 pt-1 pb-1 hover:bg-blue-500 ml-2 bg-blue-600 w-28" >
+            </button>
+        </div>
+        </form>
+    </div>
+</div>
+
+    <!-- my main.js -->
+    <script src="./main.js"></script>
+  </body>
+</html>
